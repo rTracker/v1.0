@@ -1,0 +1,8 @@
+java:
+-1.7.0_72
+ide:
+-eclipse luna
+web server:
+-tomcat 8
+build manager
+-maven 3.2.3
