@@ -2,12 +2,13 @@ package com.rtracker.database.xml;
 
 import java.io.File;
 import java.nio.file.FileSystems;
+import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -48,6 +49,11 @@ public class XMLBase {
 
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
+		transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+	    transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+	    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+	    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "3");
+
 		DOMSource source = new DOMSource(doc);
 		StreamResult result = new StreamResult(new File(directory + FS + "example" + XML));
 
