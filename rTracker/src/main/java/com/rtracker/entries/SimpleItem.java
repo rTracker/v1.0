@@ -2,9 +2,10 @@ package com.rtracker.entries;
 
 public class SimpleItem implements ITrackable {
 
-	public SimpleItem(String name) {
+	public SimpleItem(String name, String info) {
 		id = simpleItemId++;
 		this.name = name;
+		this.info = info;
 	}
 
 	@Override
@@ -23,7 +24,7 @@ public class SimpleItem implements ITrackable {
 	}
 
 	private String name;
-	private String info = "Just a trackable item";
+	private String info;;
 	private long id;
 	private static long simpleItemId = 100000000;
 }

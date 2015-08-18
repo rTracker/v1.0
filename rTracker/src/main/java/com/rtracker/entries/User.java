@@ -2,10 +2,11 @@ package com.rtracker.entries;
 
 public class User implements IUser {
 
-	public User(String name) {
+	public User(String name, String info) {
 		this.name = name;
 		userId++;
 		id = userId;
+		this.info = info;
 	}
 
 	@Override
@@ -28,7 +29,7 @@ public class User implements IUser {
 	}
 
 	private String name;
-	private String info = "Just a user";
+	private String info;
 	private long id;
 	private static long userId = 1000;
 }

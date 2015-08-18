@@ -1,6 +1,7 @@
 package com.rtracker.reservation;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.rtracker.entries.ITrackable;
 import com.rtracker.entries.IUser;
@@ -22,4 +23,10 @@ public interface IReservation extends Id {
 	ITrackable getItem();
 
 	ArrayList<IUser> getUsers();
+
+	Map<String, String> getAdditionalProperties();
+
+	void setAdditionalProperties(Map<String, String> additionalProperties);
+
+	void setNameAndInfo(String name, String info);
 }

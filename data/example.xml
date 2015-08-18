@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pool id="10000000" info="test pool 1" name="TP1">
-   <reservation id="1001" info="reservation info" name="reservation name">
-      <item id="100000000" info="Just a trackable item" name="Item1"/>
-      <user id="1001" info="Just a user" name="den"/>
-      <user id="1002" info="Just a user" name="ilya"/>
+<pool info="test pool 1" name="TP1">
+   <reservation class="SimpleReservation" info="reservation info" name="reservation name">
+      <item info="info1" name="Item1"/>
+      <user info="a" name="den"/>
+      <user info="a" name="ilya"/>
    </reservation>
-   <reservation id="1002" info="reservation info" name="reservation name">
-      <item id="100000001" info="Just a trackable item" name="Item2"/>
-      <user id="1003" info="Just a user" name="cat"/>
-      <user id="1004" info="Just a user" name="car"/>
-      <user id="1005" info="Just a user" name="table"/>
+   <reservation class="SimpleReservation" info="reservation info" name="reservation name">
+      <item info="info2" name="Item2"/>
+      <user info="a" name="cat"/>
+      <user info="a" name="car"/>
+      <user info="a" name="table"/>
    </reservation>
 </pool>

@@ -1,6 +1,11 @@
 package com.rtracker.test;
 
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
 
 import com.rtracker.database.xml.XMLBase;
 import com.rtracker.entries.SimpleItem;
@@ -18,22 +23,43 @@ import com.rtracker.reservation.SimpleReservation;
 public class Test {
 
 	public static void main(String[] args) {
+		// gereratorExample();
+		readExample();
+	}
+
+	private static void gereratorExample() {
 
 		ReservationPool pool = new ReservationPool("TP1", "test pool 1");
-		IReservation reservation1 = new SimpleReservation(new SimpleItem("Item1"));
-		reservation1.addToQuiue(new User("den"));
-		reservation1.addToQuiue(new User("ilya"));
+		IReservation reservation1 = new SimpleReservation(new SimpleItem("Item1", "info1"));
+		reservation1.addToQuiue(new User("den", "a"));
+		reservation1.addToQuiue(new User("ilya", "a"));
 		pool.addReservation(reservation1);
-		IReservation reservation2 = new SimpleReservation(new SimpleItem("Item2"));
-		reservation2.addToQuiue(new User("cat"));
-		reservation2.addToQuiue(new User("car"));
-		reservation2.addToQuiue(new User("table"));
+		IReservation reservation2 = new SimpleReservation(new SimpleItem("Item2", "info2"));
+		reservation2.addToQuiue(new User("cat", "a"));
+		reservation2.addToQuiue(new User("car", "a"));
+		reservation2.addToQuiue(new User("table", "a"));
 		pool.addReservation(reservation2);
 
 		XMLBase xmlBase = new XMLBase();
 		try {
-			xmlBase.saveToXml(pool);
+			xmlBase.saveToXml(pool, "example");
 		} catch (TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void readExample() {
+		XMLBase xmlBase = new XMLBase();
+		try {
+			ReservationPool pool = xmlBase.parseXml("example");
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
