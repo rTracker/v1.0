@@ -28,6 +28,10 @@ public class Configuration {
 		users.put(user, getHash(password));
 	}
 
+	public void loadUser(IUser user, String password) {
+		users.put(user, password);
+	}
+
 	public Map<IUser, String> getUsers() {
 		return new HashMap<IUser, String>(users);
 	}

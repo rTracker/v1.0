@@ -28,9 +28,26 @@ public class Test {
 		gereratorExample();
 		readExample();
 		generateConfiguration();
+		readConfiguration();
 	}
 
-	private static void generateConfiguration(){
+	private static void readConfiguration() {
+		XMLBase xmlBase = new XMLBase();
+		try {
+			Configuration configuration = xmlBase.parseConfiguration("configuration");
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void generateConfiguration() {
 		Configuration conf = Configuration.getInstance();
 		conf.addUser(new User("den", "1"), "1234");
 		conf.addUser(new User("nata", "2"), "qwer");
@@ -42,7 +59,7 @@ public class Test {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static void gereratorExample() {
 
 		ReservationPool pool = new ReservationPool("TP1", "test pool 1");
@@ -50,7 +67,7 @@ public class Test {
 		reservation1.addToQuiue(new User("den", "a"));
 		reservation1.addToQuiue(new User("ilya", "a"));
 		pool.addReservation(reservation1);
-		IReservation reservation2 = new SimultaneousReservation(new SimpleItem("Item2", "info2"),66);
+		IReservation reservation2 = new SimultaneousReservation(new SimpleItem("Item2", "info2"), 66);
 		reservation2.addToQuiue(new User("cat", "a"));
 		reservation2.addToQuiue(new User("car", "a"));
 		reservation2.addToQuiue(new User("table", "a"));

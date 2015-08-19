@@ -92,11 +92,18 @@ public class XMLBase {
 
 		transformer.transform(source, result);
 	}
-	
+
 	public ReservationPool parseXml(String fileName) throws ParserConfigurationException, SAXException, IOException {
 		Document doc = createDocumentForParse(fileName);
 		ReservationPool reservationPool = XMLReservationPool.parsePool(doc);
 		return reservationPool;
+	}
+
+	public Configuration parseConfiguration(String fileName)
+			throws ParserConfigurationException, SAXException, IOException {
+		Document doc = createDocumentForParse(fileName);
+		Configuration configuration = XMLConfiguration.parseConfiguration(doc);
+		return configuration;
 	}
 
 	public static void idToXML(Id idItem, Element element) {
