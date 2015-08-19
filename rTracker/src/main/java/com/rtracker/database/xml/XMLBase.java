@@ -72,9 +72,6 @@ public class XMLBase {
 		DOMSource source = new DOMSource(doc);
 		StreamResult result = new StreamResult(new File(directory + FS + filename + XML));
 
-		// Output to console for testing
-		// StreamResult result = new StreamResult(System.out);
-
 		transformer.transform(source, result);
 	}
 

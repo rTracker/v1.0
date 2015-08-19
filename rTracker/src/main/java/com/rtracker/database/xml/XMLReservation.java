@@ -16,6 +16,7 @@ import com.rtracker.entries.ITrackable;
 import com.rtracker.entries.IUser;
 import com.rtracker.reservation.IReservation;
 import com.rtracker.reservation.SimpleReservation;
+import com.rtracker.reservation.SimultaneousReservation;
 
 /**
  * IReservation xml representation
@@ -84,7 +85,7 @@ public class XMLReservation {
 				reservation = new SimpleReservation(item);
 				break;
 			case "SimultaneousReservation":
-				reservation = new SimpleReservation(item);
+				reservation = new SimultaneousReservation(item, Integer.valueOf(attributes.get("count")));
 				break;
 			default:
 				// TODO:

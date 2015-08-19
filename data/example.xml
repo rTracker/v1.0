@@ -5,7 +5,7 @@
       <user info="a" name="den"/>
       <user info="a" name="ilya"/>
    </reservation>
-   <reservation class="SimpleReservation" info="reservation info" name="reservation name">
+   <reservation class="SimultaneousReservation" count="66" info="reservation info" name="reservation name">
       <item info="info2" name="Item2"/>
       <user info="a" name="cat"/>
       <user info="a" name="car"/>

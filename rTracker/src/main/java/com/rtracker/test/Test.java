@@ -13,6 +13,7 @@ import com.rtracker.entries.User;
 import com.rtracker.reservation.IReservation;
 import com.rtracker.reservation.ReservationPool;
 import com.rtracker.reservation.SimpleReservation;
+import com.rtracker.reservation.SimultaneousReservation;
 
 /**
  * Test
@@ -23,7 +24,7 @@ import com.rtracker.reservation.SimpleReservation;
 public class Test {
 
 	public static void main(String[] args) {
-		// gereratorExample();
+		gereratorExample();
 		readExample();
 	}
 
@@ -34,7 +35,7 @@ public class Test {
 		reservation1.addToQuiue(new User("den", "a"));
 		reservation1.addToQuiue(new User("ilya", "a"));
 		pool.addReservation(reservation1);
-		IReservation reservation2 = new SimpleReservation(new SimpleItem("Item2", "info2"));
+		IReservation reservation2 = new SimultaneousReservation(new SimpleItem("Item2", "info2"),66);
 		reservation2.addToQuiue(new User("cat", "a"));
 		reservation2.addToQuiue(new User("car", "a"));
 		reservation2.addToQuiue(new User("table", "a"));
