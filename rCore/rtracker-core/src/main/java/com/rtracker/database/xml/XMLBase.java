@@ -20,6 +20,7 @@ import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 import com.rtracker.entries.Id;
+import com.rtracker.general.Configuration;
 import com.rtracker.reservation.ReservationPool;
 
 /**
@@ -75,6 +76,23 @@ public class XMLBase {
 		transformer.transform(source, result);
 	}
 
+	public void saveToXml(Configuration configuration, String filename) throws TransformerException {
+		Document doc = createDocumentForSave();
+		XMLConfiguration.getConfiguration(configuration, doc);
+
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "3");
+
+		DOMSource source = new DOMSource(doc);
+		StreamResult result = new StreamResult(new File(directory + FS + filename + XML));
+
+		transformer.transform(source, result);
+	}
+	
 	public ReservationPool parseXml(String fileName) throws ParserConfigurationException, SAXException, IOException {
 		Document doc = createDocumentForParse(fileName);
 		ReservationPool reservationPool = XMLReservationPool.parsePool(doc);

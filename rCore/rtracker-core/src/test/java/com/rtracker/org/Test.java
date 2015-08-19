@@ -10,6 +10,7 @@ import org.xml.sax.SAXException;
 import com.rtracker.database.xml.XMLBase;
 import com.rtracker.entries.SimpleItem;
 import com.rtracker.entries.User;
+import com.rtracker.general.Configuration;
 import com.rtracker.reservation.IReservation;
 import com.rtracker.reservation.ReservationPool;
 import com.rtracker.reservation.SimpleReservation;
@@ -26,8 +27,22 @@ public class Test {
 	public static void main(String[] args) {
 		gereratorExample();
 		readExample();
+		generateConfiguration();
 	}
 
+	private static void generateConfiguration(){
+		Configuration conf = Configuration.getInstance();
+		conf.addUser(new User("den", "1"), "1234");
+		conf.addUser(new User("nata", "2"), "qwer");
+		XMLBase xmlBase = new XMLBase();
+		try {
+			xmlBase.saveToXml(conf, "configuration");
+		} catch (TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	private static void gereratorExample() {
 
 		ReservationPool pool = new ReservationPool("TP1", "test pool 1");
