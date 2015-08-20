@@ -1,11 +1,14 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>L</title>
-</head>
-<body>
-logos
-</body>
-</html>
+<t:genericpage>
+    <jsp:attribute name="header">
+      <h1>Login</h1>
+    </jsp:attribute>
+    <jsp:attribute name="footer">
+      ddd
+    </jsp:attribute>
+    <jsp:body>
+    	asd
+    </jsp:body>
+</t:genericpage>
