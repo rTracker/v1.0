@@ -5,7 +5,7 @@
 <html>
 <body>
 	<div id="pageheader">
-	asd
+		<h3>rTracker</h3>
 		<jsp:invoke fragment="header" />
 	</div>
 	<div id="body">
@@ -13,6 +13,7 @@
 	</div>
 	<div id="pagefooter">
 		<jsp:invoke fragment="footer" />
+		<h4>Denis Antonov (c)</h4>
 	</div>
 </body>
 </html>
